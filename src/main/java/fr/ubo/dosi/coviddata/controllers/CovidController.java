@@ -1,11 +1,10 @@
-package fr.ubo.dosi.git remote add origin https://github.com/AbdellM/Covid-Data.git.controllers;
+package fr.ubo.dosi.coviddata.controllers;
 
 import fr.ubo.dosi.coviddata.Entities.CountryData;
 import fr.ubo.dosi.coviddata.Entities.CountryDataByDate;
 import fr.ubo.dosi.coviddata.services.CovidService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
