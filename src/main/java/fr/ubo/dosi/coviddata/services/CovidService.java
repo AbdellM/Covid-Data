@@ -10,5 +10,5 @@ public interface CovidService {
 
     public List<CountryDataByDate> oneCountryData(String countryName);
 
-    public CountryData oneCountryDataWithDate(String countryName, LocalDate date) ;
+    public CountryData oneCountryDataWithDate(String countryName, LocalDate date);
 }
