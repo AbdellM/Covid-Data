@@ -23,6 +23,9 @@ public class CovidController {
 
     @GetMapping("oneCountryData")
     public ResponseEntity<Object> oneCountryData(@RequestParam String countryName) {
+        if(countryName.isEmpty() || countryName.isBlank()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Must provide a country name");
+        }
         countryName=countryName.substring(0, 1).toUpperCase() + countryName.substring(1); //capitalize countryname (maroc => Maroc)
         List<CountryDataByDate> countryDataByDates = covidService.oneCountryData(countryName);
         if (! countryDataByDates.isEmpty())
@@ -33,6 +36,9 @@ public class CovidController {
 
     @GetMapping("oneCountryDataWithDate")
     public ResponseEntity<Object> oneCountryDataWithDate(@RequestParam String countryName, @RequestParam String date) {
+        if(countryName.isEmpty() || countryName.isBlank()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Must provide a country name");
+        }
         countryName=countryName.substring(0, 1).toUpperCase() + countryName.substring(1);
         CountryData countryData;
         try{
@@ -48,6 +54,9 @@ public class CovidController {
 
     @GetMapping("todayCountryData")
     public ResponseEntity<Object>  todayCountryData(@RequestParam String countryName) {
+        if(countryName.isEmpty() || countryName.isBlank()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Must provide a country name");
+        }
         countryName=countryName.substring(0, 1).toUpperCase() + countryName.substring(1);//capitalize
 
         CountryData countryData=covidService.oneCountryDataWithDate(countryName, LocalDate.now().minusDays(1));
